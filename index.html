@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Salut des Familles et des Nations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        accent: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        'serif': ['Georgia', 'Times New Roman', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f766e 0%, #1e40af 50%, #059669 100%);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .card-hover {
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .card-values {
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(8px);
+        }
+        .card-values:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%);
+        }
+        .icon-bounce {
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .card-values:hover .icon-bounce {
+            transform: scale(1.15) rotate(3deg);
+        }
+    </style>
+</head>
+<body class="font-sans leading-relaxed">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-lg fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="logo.jpeg" alt="Mission Salut Logo" class="w-10 h-10 object-contain rounded-full">
+                    <span class="font-bold text-gray-800 text-lg">Mission Salut</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold">Accueil</a>
+                    <a href="#vision" class="text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold">Vision</a>
+                    <a href="#valeurs" class="text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold">Valeurs</a>
+                    <a href="#famille" class="text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold">Famille</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-700 hover:text-blue-600 transition-colors">
+                    <svg id="hamburger-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-sm border-t">
+                <div class="px-4 py-6 space-y-4">
+                    <a href="#accueil" class="block text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold py-2">Accueil</a>
+                    <a href="#vision" class="block text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold py-2">Vision</a>
+                    <a href="#valeurs" class="block text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold py-2">Valeurs</a>
+                    <a href="#famille" class="block text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold py-2">Famille</a>
+                    <a href="#contact" class="block text-gray-700 hover:text-blue-600 transition-colors text-xl font-semibold py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Magazine Layout -->
+    <section id="accueil" class="gradient-bg min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Contenu principal -->
+                <div class="text-white space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="text-5xl lg:text-6xl font-bold text-shadow leading-tight">
+                            MISSION SALUT
+                            <span class="block text-accent-400">DES FAMILLES</span>
+                            <span class="block">ET DES NATIONS</span>
+                        </h1>
+                        <div class="w-24 h-1 bg-accent-400"></div>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 space-y-4">
+                        <h2 class="text-xl font-semibold text-accent-400">NOTRE VISION :</h2>
+                        <p class="text-lg">Le salut intégral de l'homme ainsi que de sa famille</p>
+                        <p class="text-sm italic opacity-90">Acte 16:31</p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 space-y-4">
+                        <h2 class="text-xl font-semibold text-accent-400">NOTRE MANDAT :</h2>
+                        <p class="text-xl font-medium">Sauver les familles pour atteindre les nations</p>
+                    </div>
+                </div>
+
+                <!-- Image/Logo Section -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-full p-8 w-80 h-80 flex items-center justify-center">
+                        <div class="text-center space-y-4">
+                            <div class="w-128
+                             h-128 mx-auto bg-white/20 rounded-full flex items-center justify-center overflow-hidden">
+                                <img src="logo.jpeg" alt="Mission Salut Logo" class="w-full h-full object-cover">
+                            </div>
+                           
+                            <p class="text-white text-xl font-semibold">Jésus-christ est seigneur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horaires de Culte - Grands blocs contrastés -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Horaires de Culte</h2>
+                <div class="w-24 h-1 bg-accent-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Mercredi -->
+                <div class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-8 text-white card-hover">
+                    <div class="text-center space-y-6">
+                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">
+                            <span class="text-2xl">🙏</span>
+                        </div>
+                        <h3 class="text-2xl font-bold">Mercredi</h3>
+                        <p class="text-xl">18h00 à 19h30</p>
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <p class="font-medium">Intercession, guérison Divine et restauration familiale</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dimanche -->
+                <div class="bg-gradient-to-br from-teal-600 to-teal-700 rounded-xl p-8 text-white card-hover">
+                    <div class="text-center space-y-6">
+                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">
+                            <span class="text-2xl">✨</span>
+                        </div>
+                        <h3 class="text-2xl font-bold">Dimanche</h3>
+                        <p class="text-xl">13h00 à 15h30</p>
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <p class="font-medium">Célébration prophétique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section - Layout asymétrique -->
+    <section id="vision" class="bg-gray-50 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Colonne principale asymétrique -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-8">Notre Vision</h2>
+                    <div class="space-y-6 text-lg text-gray-700">
+                        <p class="text-lg italic text-blue-600 font-medium mb-4">
+                            Notre vision embrasse à la fois l'individu, la famille et les peuples.
+                        </p>
+                        <p class="text-xl leading-relaxed">
+                            Voir chaque famille restaurée par l'amour de Dieu et élevér des générations 
+                            fondées sur la vérité, la justice et la paix.
+                        </p>
+                        <p>
+                            Nous encourageons les croyants à prier et agir par le Saint Esprit pour la 
+                            transformation de leurs familles et nations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Citation décalée -->
+                <div class="lg:mt-16">
+                    <div class="bg-blue-600 text-white p-6 rounded-lg">
+                        <blockquote class="text-lg italic mb-4">
+                            "Crois au seigneur jésus-christ, tu sera sauvé toi et ta FAMILLE"
+                        </blockquote>
+                        <cite class="text-accent-400 font-medium">Actes 16:31</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valeurs - Magazine Layout avec images -->
+    <section id="valeurs" class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Nos Valeurs</h2>
+                <div class="w-24 h-1 bg-accent-500 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center space-y-6 card-values p-8 rounded-xl bg-white/80 border border-gray-100">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto icon-bounce">
+                        <span class="text-3xl">🙏</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Foi en Dieu</h3>
+                    <p class="text-gray-600 text-lg">Fondement de toute action</p>
+                </div>
+
+                <div class="text-center space-y-6 card-values p-8 rounded-xl bg-white/80 border border-gray-100">
+                    <div class="w-20 h-20 bg-gradient-to-br from-teal-100 to-teal-200 rounded-full flex items-center justify-center mx-auto icon-bounce">
+                        <span class="text-3xl">👨‍👩‍👧‍👦</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Unité familiale</h3>
+                    <p class="text-gray-600 text-lg">La famille avant tout</p>
+                </div>
+
+                <div class="text-center space-y-6 card-values p-8 rounded-xl bg-white/80 border border-gray-100">
+                    <div class="w-20 h-20 bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mx-auto icon-bounce">
+                        <span class="text-3xl">❤️</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Respect de la vie</h3>
+                    <p class="text-gray-600 text-lg">Dignité humaine</p>
+                </div>
+
+                <div class="text-center space-y-6 card-values p-8 rounded-xl bg-white/80 border border-gray-100">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto icon-bounce">
+                        <span class="text-3xl">✨</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Intégrité</h3>
+                    <p class="text-gray-600 text-lg">Vérité et transparence</p>
+                </div>
+            </div>
+
+            <!-- Valeurs supplémentaires -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                <div class="text-center space-y-6 card-values p-8 rounded-xl bg-white/80 border border-gray-100">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto icon-bounce">
+                        <span class="text-3xl">🤝</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Service</h3>
+                    <p class="text-gray-600 text-lg">Compassion active</p>
+                </div>
+
+                <div class="text-center space-y-6 card-values p-8 rounded-xl bg-white/80 border border-gray-100">
+                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-full flex items-center justify-center mx-auto icon-bounce">
+                        <span class="text-3xl">🕊️</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Paix & Justice</h3>
+                    <p class="text-gray-600 text-lg">Équité pour tous</p>
+                </div>
+
+                <div class="text-center space-y-6 card-values p-8 rounded-xl bg-white/80 border border-gray-100">
+                    <div class="w-20 h-20 bg-gradient-to-br from-pink-100 to-pink-200 rounded-full flex items-center justify-center mx-auto icon-bounce">
+                        <span class="text-3xl">💬</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Témoignage</h3>
+                    <p class="text-gray-600 text-lg">Incarné et accueil</p>
+                </div>
+
+                <div class="text-center space-y-6 card-values p-8 rounded-xl bg-white/80 border border-gray-100">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mx-auto icon-bounce">
+                        <span class="text-3xl">🌍</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Mission</h3>
+                    <p class="text-gray-600 text-lg">Action communautaire</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Famille & Nations - Chevauchement d'éléments -->
+    <section id="famille" class="gradient-bg py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Famille -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-white">
+                    <h2 class="text-3xl font-bold mb-6 text-accent-400">Famille</h2>
+                    <div class="space-y-4">
+                        <blockquote class="text-lg italic border-l-4 border-accent-400 pl-4">
+                            "Crois au Seigneur Jésus, et tu seras sauvé, toi et ta famille."
+                        </blockquote>
+                        <cite class="text-accent-400">Actes 16:31</cite>
+                        
+                        <blockquote class="text-lg italic border-l-4 border-accent-400 pl-4 mt-6">
+                            "Moi et ma maison, nous servirons l'Éternel."
+                        </blockquote>
+                        <cite class="text-accent-400">Josué 24:15</cite>
+                    </div>
+                </div>
+
+                <!-- Nations -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-white lg:-ml-8 lg:mt-16">
+                    <h2 class="text-3xl font-bold mb-6 text-accent-400">Nations</h2>
+                    <div class="space-y-4">
+                        <blockquote class="text-lg italic border-l-4 border-accent-400 pl-4">
+                            "Car cet homme est un instrument que j'ai choisi, pour porter mon nom devant les Nations..."
+                        </blockquote>
+                        <cite class="text-accent-400">Actes 9:15</cite>
+                        
+                        <blockquote class="text-lg italic border-l-4 border-accent-400 pl-4 mt-6">
+                            "Heureux le peuple dont l'Éternel est le Dieu!"
+                        </blockquote>
+                        <cite class="text-accent-400">Psaume 33:12</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-800 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Nous Contacter</h2>
+                <div class="w-24 h-1 bg-accent-500 mx-auto"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Informations de contact -->
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-xl">📞</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Téléphone</h3>
+                            <p class="text-accent-400 text-lg">+33 7 84 60 72 74</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-xl">📍</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Adresse</h3>
+                            <p>4 Avenue de Melun<br>94190 Villeneuve-Saint-Georges</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-xl">⏰</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Horaires</h3>
+                            <p>Mercredi : 18h00 - 19h30<br>Dimanche : 13h00 - 15h30</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire de contact -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Envoyez-nous un message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Nom complet</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-accent-500" placeholder="Votre nom">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-accent-500" placeholder="votre.email@exemple.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-accent-500" placeholder="Votre message..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-6">
+                <div class="flex items-center justify-center space-x-3">
+                    <img src="logo.jpeg" alt="Mission Salut Logo" class="w-12 h-12 object-contain rounded-full">
+                    <span class="text-2xl font-bold">Mission Salut des Familles et des Nations</span>
+                </div>
+                
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Promouvoir des valeurs chrétiennes, morales et spirituelles qui fortifient les familles, 
+                    restaurent les communautés et inspirent les nations vers le salut et la paix.
+                </p>
+                
+                <div class="text-accent-400 text-lg italic">
+                    "Jésus-christ est seigneur"
+                </div>
+                
+                <div class="border-t border-gray-700 pt-6 text-gray-400 space-y-3">
+                    <div class="flex flex-col align-start text-sm">
+                        <div>
+                            <p><strong>RNA:</strong> W751279453</p>
+                            <p><strong>SIREN:</strong> 988855698</p>
+                       
+                            <p><strong>SIRET:</strong> 98885569800011</p>
+                            <p><strong>Code NAF/APE:</strong> 94.91Z</p>
+                        </div>
+                    </div>
+                    <p>&copy; 2025 Mission Salut des Familles et des Nations. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script pour navigation douce -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+
+        // Navigation douce
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les éléments à animer
+        document.querySelectorAll('.card-hover, .card-values').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
